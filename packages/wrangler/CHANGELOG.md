@@ -1,5 +1,27 @@
 # wrangler
 
+## 0.0.18
+
+### Patch Changes
+
+- [#480](https://github.com/cloudflare/wrangler2/pull/480) [`10cb789`](https://github.com/cloudflare/wrangler2/commit/10cb789a3884db17c757a6f619c98abd930ced22) Thanks [@caass](https://github.com/caass)! - Refactored tail functionality in preparation for adding pretty printing.
+
+  - Moved the `debug` toggle from a build-time constant to a (hidden) CLI flag
+  - Implemented pretty-printing logs, togglable via `--format pretty` CLI option
+  - Added stronger typing for tail event messages
+
+* [#481](https://github.com/cloudflare/wrangler2/pull/481) [`8874548`](https://github.com/cloudflare/wrangler2/commit/88745484106a37e862d5de56ae4b7599775d7e59) Thanks [@threepointone](https://github.com/threepointone)! - fix: replace the word "deploy" with "publish" everywhere.
+
+  We should be consistent with the word that describes how we get a worker to the edge. The command is `publish`, so let's use that everywhere.
+
+- [#496](https://github.com/cloudflare/wrangler2/pull/496) [`5a640f0`](https://github.com/cloudflare/wrangler2/commit/5a640f0bcee7626cb8a969c89b8de7751d553df3) Thanks [@jahands](https://github.com/jahands)! - chore: Remove acorn/acorn-walk dependency used in Pages Functions filepath-routing.
+
+  This shouldn't cause any functional changes, Pages Functions filepath-routing now uses esbuild to find exports.
+
+* [#486](https://github.com/cloudflare/wrangler2/pull/486) [`ff8c9f6`](https://github.com/cloudflare/wrangler2/commit/ff8c9f6cf9f6bf2922df74ea1083d12153a64ae0) Thanks [@threepointone](https://github.com/threepointone)! - fix: remove warning if worker with a durable object doesn't have a name
+
+  We were warning if you were trying to develop a durable object with an unnamed worker. Further, the internal api would actually throw if you tried to develop with a named worker if it wasn't already published. The latter is being fixed internally and should live soon, and this fix removes the warning completely.
+
 ## 0.0.17
 
 ### Patch Changes
